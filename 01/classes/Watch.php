@@ -4,26 +4,41 @@ class Watch extends Product {
   private $accuracy;
   private $gender;
   
-  function __construct($accuracy, $gender, $name, $price, $discount=0) {
+  public function __construct($accuracy, $gender, $name, $price, $discount=0) {
     parent::__construct($name, $price, $discount);
     $this->accuracy = $accuracy;
     $this->gender = $gender;
   }
   
-  function getAccuracy() {
+  public function getAccuracy() {
     return $this->accuracy;
   }
 
-  function getGender() {
-    return $this->gender;
+  public function getGender() {
+    if ($this->gender === 'male' || $this->gender === 'man'){
+      $myGender = 'мужчин';
+    } elseif (($this->gender === 'female' || $this->gender === 'woman')) {
+      $myGender = 'женщин';
+    } else {
+      $myGender = 'мужчин или женщин';
+    }
+    return $myGender;
   }
 
-  function setAccuracy($accuracy) {
+  public function setAccuracy($accuracy) {
     $this->accuracy = $accuracy;
   }
 
-  function setGender($gender) {
+  public function setGender($gender) {
     $this->gender = $gender;
+  }
+  
+  public function getProduct() {
+    $product = parent::getProduct();
+    $product .= '<br>' . 'Точность хода: ' . $this->getAccuracy() . 
+                '<br>' . 'Прекрасные выбор для ' . $this->getGender();
+    
+    return $product;
   }
   
 }

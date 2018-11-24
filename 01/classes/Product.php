@@ -39,8 +39,8 @@ class Product {
     $product = 'Наименование: ' . $this->getName() . '<br>' . 
          'Цена: ' . $this->getPrice();
     if ($this->discount > 0) {
-      $product .= '<br>' . 'Скидка: ' . $this->getDiscount() . '<br>' .
-                  'Цена со скидкой: ' . $this->getPrice() * $this->getDiscount() / 100;
+      $product .= '<br>' . 'Скидка: ' . $this->getDiscount() . "% <br>" .
+                  'Цена со скидкой: ' . ($this->getPrice() - ($this->getPrice() * $this->getDiscount() / 100));
     }
     
     return $product;
