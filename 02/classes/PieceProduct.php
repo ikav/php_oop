@@ -19,4 +19,8 @@ class PieceProduct extends Product
   public function getProfit() {
     return self::$profit += $this->getTotalCost();
   }
+  
+  public function getTotalProfit() {
+    return self::$totalProfit;
+  }
 }

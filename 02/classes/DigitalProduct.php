@@ -8,7 +8,7 @@ class DigitalProduct extends Product
     return '<h3>Это цифровой товар - цены пополам!</h3>';
   }
 
-  public function getDigitalPrice() {
+    public function getDigitalPrice() {
     return $this->getPrice() / 2;
   }
   
@@ -22,6 +22,10 @@ class DigitalProduct extends Product
   
   public function getProfit() {
     return self::$profit += $this->getTotalCost();
+  }
+  
+  public function getTotalProfit() {
+    return self::$totalProfit;
   }
 
 }

@@ -6,12 +6,13 @@ abstract class Product
   private $price;
   private $num;
 
-//  private static $profit = 0;
+  protected static $totalProfit = 0;
 
   public function __construct($name, $price, $num) {
     $this->name = $name;
     $this->price = $price;
     $this->num = $num;
+    self::$totalProfit += $this->getTotalCost();
   }
 
   public function getName() {
@@ -37,7 +38,11 @@ abstract class Product
   public function setNum($num) {
     $this->num = $num;
   }
-    
+  
+  public function getTotalProfit() {
+    return self::$totalProfit += $this->getTotalCost();
+  }
+
   public abstract function getTotalCost();
   
   public abstract function getType();
