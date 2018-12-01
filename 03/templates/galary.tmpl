@@ -10,12 +10,14 @@
     <h1>Птички во всей красе</h1>
     <!-- Фото галерея -->
     <ul class="products-list catalog-products-list">
-      <li class="product-item">
-        <p>
-          <a href="{{ birdPath }}" target="eagle-bald"><img src=" {{ birdPath }}" width="184" alt="{{ birdName }}"></a>
-        </p>
-        <div>{{ birdName }}</div>
-      </li>
+      {% for item in items %}
+        <li class="product-item">
+          <p>
+            <a href="{{ item }}" target="eagle-bald"><img src=" {{ item }}" width="184" alt="{{ birdName }}"></a>
+          </p>
+          <div>{{ birdName }}</div>
+        </li>
+      {% endfor %}
     </ul>
   </body>
 </html>
