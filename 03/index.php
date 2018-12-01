@@ -10,7 +10,7 @@
     // Инициализируем Twig
     $twig = new Twig_Environment($loader);
     // Подгружаем шаблон
-    $template = $twig->loadTemplate($template);
+    $template = $twig->loadTemplate('galary.tmpl');
     // Передаем в шаблон переменные и значения
     // Выводим сформированное содержание
     echo $template->render(array(
