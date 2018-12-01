@@ -13,9 +13,9 @@
       {% for item in items %}
         <li class="product-item">
           <p>
-            <a href="{{ item }}" target="eagle-bald"><img src=" {{ item }}" width="184" alt="{{ birdName }}"></a>
+            <a href="{{ item.birdPath }}" target="eagle-bald"><img src=" {{ item.birdPath }}" width="184" alt="{{ item.birdName }}"></a>
           </p>
-          <div>{{ birdName }}</div>
+          <div>{{ item.birdName }}</div>
         </li>
       {% endfor %}
     </ul>

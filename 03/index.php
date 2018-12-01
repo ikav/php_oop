@@ -1,11 +1,11 @@
 <?php
 
   $items = array (
-      'public/img/eagle-bald.jpg',
-      'public/img/eagle-eyes.jpg',
-      'public/img/owl.jpg',
-      'public/img/marsh-harrier.jpg',
-      'public/img/falcon.jpg'
+      array ('birdPath' => 'public/img/eagle-bald.jpg', 'birdName' => 'Целеустремленный'),
+      array ('birdPath' => 'public/img/eagle-eyes.jpg', 'birdName' => 'Глаза орла'),
+      array ('birdPath' => 'public/img/owl.jpg', 'birdName' => 'Совушка'),
+      array ('birdPath' => 'public/img/marsh-harrier.jpg', 'birdName' => 'Болотный лунь'),
+      array ('birdPath' => 'public/img/falcon.jpg', 'birdName' => 'Сокол')
   );
   
   // Подгружаем и активируем автозагрузчик Twig-а
@@ -22,10 +22,6 @@
     $template = $twig->loadTemplate('galary.tmpl');
     // Передаем в шаблон переменные и значения
     // Выводим сформированное содержание
-//    echo $template->render(array(
-//      birdPath => 'public/img/eagle-bald.jpg',
-//      birdName => 'Целеустремленный'
-//    ));
     echo $template->render(array(
       'items' => $items
     ));
