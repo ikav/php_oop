@@ -1,8 +1,8 @@
 <?php
 
   // Подгружаем и активируем автозагрузчик Twig-а
-  require_once 'lib/Twig/Autoloader.php';
-  Twig_Autoloader​::​register​();
+  require_once 'Twig/Autoloader.php';
+  Twig_Autoloader::register();
   
   try {
     // Указывает, где хранятся шаблоны
