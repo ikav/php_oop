@@ -18,16 +18,12 @@
     
     unset($db);
     
-//    echo '<pre>';
-//    print_r($data);
-//    echo '</pre>';
-    
     // Указывает, где хранятся шаблоны
     $loader = new Twig_Loader_Filesystem('templates');
     // Инициализируем Twig
     $twig = new Twig_Environment($loader);
     // Подгружаем шаблон
-    $template = $twig->loadTemplate('galary.tmpl');
+    $template = $twig->loadTemplate('galary_new.tmpl');
     // Передаем в шаблон переменные и значения
     // Выводим сформированное содержание
     echo $template->render(array(

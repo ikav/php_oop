@@ -1,33 +1,45 @@
 <?php
-  include_once "config/config.php";
-  
-  $sql = "select * from birds where id=".$_GET['id'];
-  $res = mysqli_query($connect, $sql);
-  if (mysqli_num_rows($res) > 0) : 
-    $data = mysqli_fetch_assoc($res);
-?>
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><?=$data['name']?></title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="public/css/style.css" rel="stylesheet" >
-  </head>
-  <body>
-    <h1><?=$data['name']?></h1>
-    <div class="card-of-bird">
-      <img src="<?=$data['url']?>" alt="<?=$data['description']?>">
-      <p>Количество просмотров: <b><?=$data['numViews']?></p>
-    </div>
-  </body>
-</html>
-
-<?php
-  else :
-    echo 'Такой птички не найдено!';
-  endif;
+  // Конфиг подключения к БД
+  require_once "config/config.php";
   
-  mysqli_close($connect);
+  // Подгружаем и активируем автозагрузчик Twig-а
+  require_once 'Twig/Autoloader.php';
+  Twig_Autoloader::register();
+  
+  try {
+    
+    $sql = "SELECT * FROM birds WHERE id=".$_GET['id'];;
+    $res = $db->query($sql);
+    
+    while ($row = $res->fetchObject()) {
+      $data[] = $row;
+    }
+    
+    unset($db);
+    
+    // Указывает, где хранятся шаблоны
+    $loader = new Twig_Loader_Filesystem('templates');
+    // Инициализируем Twig
+    $twig = new Twig_Environment($loader);
+    // Подгружаем шаблон
+    $template = $twig->loadTemplate('card-of-bird.tmpl');
+    // Передаем в шаблон переменные и значения
+    // Выводим сформированное содержание
+    echo $template->render(array(
+      'items' => $data
+    ));
+    
+//  Не могу понять почему этот код не выводит элементы массива
+//    echo $template->render(array(
+//      'name' => $data['name'],
+//      'url' => $data['url'],
+//      'description' => $data['description'],
+//      'numViews' => $data['numViews']
+//    ));
+    
+  } catch (Exception $e) {
+   die('Ошибка: ' . $e->getMessage());
+  }
+  
 ?>

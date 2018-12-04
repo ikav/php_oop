@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Птички</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="public/css/style.css" rel="stylesheet" >
+  </head>
+  <body>
+    <h1>Птички во всей красе</h1>
+    <!-- Фото галерея -->
+    <ul class="products-list catalog-products-list">
+      {% for item in items %}  
+        <li class="product-item">
+          <p>
+            <a href="card-of-bird.php?id={{item.id}}" target="_blank">  
+              <img src="{{item.url_small}}" alt="{{item.description}}">
+            </a>
+          </p>
+          <div>{{item.name}}</div>
+        </li>
+      {% endfor %}
+</html>

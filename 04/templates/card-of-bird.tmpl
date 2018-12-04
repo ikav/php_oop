@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Птичка</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="public/css/style.css" rel="stylesheet" >
+  </head>
+  <body>
+    {% for item in items %}
+      <h1>{{item.name}}</h1>
+      <div class="card-of-bird">
+        <img src="{{item.url}}" alt="{{item.description}}">
+        <p>Количество просмотров: <b>{{item.numViews}}</p>
+      </div>
+    {% endfor %}
+  </body>    
+</html>
