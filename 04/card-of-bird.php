@@ -13,7 +13,7 @@
     $res = $db->query($sql);
     
     while ($row = $res->fetchObject()) {
-      $data[] = $row;
+      $data = $row;
     }
     
     unset($db);
@@ -23,20 +23,19 @@
     // Инициализируем Twig
     $twig = new Twig_Environment($loader);
     // Подгружаем шаблон
-    $template = $twig->loadTemplate('card-of-bird.tmpl');
+    $template = $twig->loadTemplate('card-of-bird_new.tmpl');
     // Передаем в шаблон переменные и значения
     // Выводим сформированное содержание
-    echo $template->render(array(
-      'items' => $data
-    ));
-    
-//  Не могу понять почему этот код не выводит элементы массива
 //    echo $template->render(array(
-//      'name' => $data['name'],
-//      'url' => $data['url'],
-//      'description' => $data['description'],
-//      'numViews' => $data['numViews']
-//    ));
+//      'items' => $data
+//    ));    
+
+    echo $template->render(array(
+      'name' => $data->name,
+      'url' => $data->url,
+      'description' => $data->description,
+      'numViews' => $data->numViews
+    ));
     
   } catch (Exception $e) {
    die('Ошибка: ' . $e->getMessage());
