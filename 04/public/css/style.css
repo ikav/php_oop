@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Cuprum", Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  margin-left: 40px;
+  margin-bottom: 20px;
+  color: #2731be;
+}
+
+/* Фото галерея */
+.catalog-products-list {
+  text-transform: none;
+}
+
+.products-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0;
+  margin: 20px;
+  list-style: none;
+}
+
+.product-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+  width: 218px;
+  min-height: 300px;
+  margin: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #eaeaea;
+  text-align: center;
+}
+
+.product-item:hover {
+  -webkit-box-shadow: 0 10px 50px #eaeaea;
+          box-shadow: 0 10px 50px #eaeaea;
+}
+
+.card-of-bird {
+  margin-left: 40px;
+}
