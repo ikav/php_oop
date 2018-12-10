@@ -10,7 +10,7 @@ function gbStandardAutoload($className)
         'controller',
         'data/migrate',
         'lib',
-//        'lib/smarty',
+        'lib/smarty',
         'lib/commands',
         'model'
     ];
