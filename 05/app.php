@@ -5,7 +5,7 @@ try{
     App::init();
 }
 catch (PDOException $e){
-    echo "DB is not available";
+    echo "Не могу подключиться к базе данных!";
     var_dump($e->getTrace());
 }
 catch (Exception $e){

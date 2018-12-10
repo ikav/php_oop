@@ -15,7 +15,7 @@ class App
     protected static function web($url)
     {
         $url = explode("/", $url);
-        if (isset($url[0])) {
+        if (!empty($url[0])) {
             $_GET['page'] = $url[0];
             if (isset($url[1])) {
                 if (is_numeric($url[1])) {
